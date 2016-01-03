@@ -1,0 +1,16 @@
+
+{
+  "name": "Twitter Auto Reply",
+  "description": "Auto reply to some tweets with predetermined responses",
+  "keywords": [
+    "twitter",
+    "tweet",
+    "reply"
+  ],
+  "repository": "https://github.com/fabienfoerster/twitter-autoreply",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-go"
+    }
+  ]
+}
