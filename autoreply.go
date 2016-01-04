@@ -1,12 +1,23 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"os"
 
 	"github.com/ChimeraCoder/anaconda"
 )
+
+type Configuration struct {
+	Users []struct {
+		Name     string
+		Response struct {
+			Text     string
+			MediaURL string
+		}
+	}
+}
 
 var twitterAPIKey, twitterAPISecret, twitterAccessToken, twitterAccessTokenSecret string
 
@@ -29,7 +40,21 @@ func loadEnvironmentVariables() {
 	}
 }
 
+func loadConfiguration() Configuration {
+	log.Println("Loading configuration ...")
+	file, _ := os.Open("config.json")
+	decoder := json.NewDecoder(file)
+	configuration := Configuration{}
+	err := decoder.Decode(&configuration)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return configuration
+}
+
 func main() {
+
+	configuration := loadConfiguration()
 
 	// stop forgetting to load environment variables !!
 	loadEnvironmentVariables()
@@ -51,7 +76,7 @@ func main() {
 		switch v := t.(type) {
 		case anaconda.Tweet:
 			fmt.Printf("Tweet by: %s \n", v.User.Name)
-			if isMentionned(user.ScreenName, v) && isOnBlackList(v.User) {
+			if isMentionned(user.ScreenName, v) && isOnBlackList(v.User, configuration) {
 				log.Println("User mentionnned in tweet by blacklisted guy: Exterminate !")
 			}
 		}
@@ -68,6 +93,11 @@ func isMentionned(name string, tweet anaconda.Tweet) bool {
 	return false
 }
 
-func isOnBlackList(tweet anaconda.User) bool {
-	return true
+func isOnBlackList(u anaconda.User, config Configuration) bool {
+	for _, user := range config.Users {
+		if user.Name == u.ScreenName {
+			return true
+		}
+	}
+	return false
 }
