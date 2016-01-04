@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"net/url"
 	"os"
 
 	"github.com/ChimeraCoder/anaconda"
@@ -73,11 +74,15 @@ func main() {
 	log.Println("User stream initialized ...")
 
 	for t := range stream.C {
-		switch v := t.(type) {
+		switch tw := t.(type) {
 		case anaconda.Tweet:
-			fmt.Printf("Tweet by: %s \n", v.User.Name)
-			if isMentionned(user.ScreenName, v) && isOnBlackList(v.User, configuration) {
+			fmt.Printf("Tweet by: %s \n", tw.User.Name)
+			if isMentionned(user.ScreenName, tw) && isOnBlackList(tw.User, configuration) {
 				log.Println("User mentionnned in tweet by blacklisted guy: Exterminate !")
+				v := url.Values{}
+				v.Set("in_reply_to_status_id", tw.IdStr)
+				var reponse = fmt.Sprintf("@%s Réponse automatique et boum (j'espère) cc @haitaar", tw.User.ScreenName)
+				api.PostTweet(reponse, v)
 			}
 		}
 	}
