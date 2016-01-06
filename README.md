@@ -35,4 +35,4 @@ heroku config:set TWITTER_ACCESS_TOKEN=XXX
 heroku config:set TWITTER_ACCESS_TOKEN_SECRET=XXX
 ```
 
-And you are good to go <3
+And you are good to go <3 ( just turn on the worker in the heroku dashboard ;)
