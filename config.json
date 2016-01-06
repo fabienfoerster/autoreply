@@ -1,10 +1,17 @@
 {
   "users" : [
     {
-      "name" : "minicouilles",
+      "name" : "clement0210",
       "response" : {
-        "text" : "No soy tu papi ",
-        "mediaURL" : "arriba"
+        "text" : "",
+        "mediaURL" : "http://media2.giphy.com/media/ZsmCoNbVPy0QE/giphy.gif"
+      }
+    },
+    {
+      "name" : "jejemontagne",
+      "response" : {
+        "text" : "",
+        "mediaURL" : "http://media2.giphy.com/media/ZsmCoNbVPy0QE/giphy.gif"
       }
     }
   ]
