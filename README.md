@@ -29,10 +29,24 @@ And finally you specify some environment variable for the Twitter API.
 ##Environment variables
 The app use the twitter API so you'll need to set 5 environment variables
 ```
+TWITTER_API_KEY=XXX
+TWITTER_API_SECRET=XXX
+TWITTER_ACCESS_TOKEN=XXX
+TWITTER_ACCESS_TOKEN_SECRET=XXX
+```
+
+And you are good to go <3 ( just turn on the worker in the heroku dashboard ;)
+
+#CLI Installation
+Be sure to have installed the heroku toolbelt .
+Then simply :
+```bash
+git clone git@github.com:fabienfoerster/autoreply.git
+heroku create
+git push heroku master
 heroku config:set TWITTER_API_KEY=XXX
 heroku config:set TWITTER_API_SECRET=XXX
 heroku config:set TWITTER_ACCESS_TOKEN=XXX
 heroku config:set TWITTER_ACCESS_TOKEN_SECRET=XXX
 ```
-
-And you are good to go <3 ( just turn on the worker in the heroku dashboard ;)
+And again be sure to turn the worker on in the dashboard .. ( should look into that)
