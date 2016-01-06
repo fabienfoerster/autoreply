@@ -13,6 +13,13 @@
         "text" : "",
         "mediaURL" : "http://media2.giphy.com/media/ZsmCoNbVPy0QE/giphy.gif"
       }
+    },
+    {
+      "name" : "minicouilles",
+      "response" : {
+        "text" : "You're teasing me right ?",
+        "mediaURL" : "https://media.giphy.com/media/qlSSCHfKSqY00/giphy.gif"
+      }
     }
   ]
 }
