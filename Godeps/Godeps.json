@@ -1,0 +1,30 @@
+{
+	"ImportPath": "github.com/fabienfoerster/autoreply",
+	"GoVersion": "go1.5.1",
+	"Deps": [
+		{
+			"ImportPath": "github.com/ChimeraCoder/anaconda",
+			"Rev": "aa628ec9b414f6a2d88834a40e3b2bbef4dbdf1b"
+		},
+		{
+			"ImportPath": "github.com/ChimeraCoder/tokenbucket",
+			"Rev": "c5a927568de7aad8a58127d80bcd36ca4e71e454"
+		},
+		{
+			"ImportPath": "github.com/azr/backoff",
+			"Rev": "dd6e01f857f8c114b40c6ce808502a87c58c6816"
+		},
+		{
+			"ImportPath": "github.com/dustin/go-jsonpointer",
+			"Rev": "2efc9fef1d9421a8d252a32e20beb10cecd2bbca"
+		},
+		{
+			"ImportPath": "github.com/dustin/gojson",
+			"Rev": "af16e0e771e2ed110f2785564ae33931de8829e4"
+		},
+		{
+			"ImportPath": "github.com/garyburd/go-oauth/oauth",
+			"Rev": "3131beb69b81ff119923bdefbf029318f1f53794"
+		}
+	]
+}
